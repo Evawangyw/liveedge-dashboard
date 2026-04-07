@@ -7,340 +7,79 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
-:root {
-  --navy:    #0C1A3A;
-  --navy2:   #112248;
-  --navy3:   #172d5c;
-  --yellow:  #E8B84B;
-  --yellow2: #F5C842;
-  --cream:   #EDE0C0;
-  --cream2:  #D9C99A;
-  --red:     #C0392B;
-  --red-bg:  rgba(192,57,43,0.15);
-  --red-bd:  rgba(192,57,43,0.5);
-  --amber:   #D4890A;
-  --amb-bg:  rgba(212,137,10,0.15);
-  --amb-bd:  rgba(212,137,10,0.5);
-  --green:   #1A7A52;
-  --grn-bg:  rgba(26,122,82,0.15);
-  --grn-bd:  rgba(26,122,82,0.5);
-  --border:  rgba(232,184,75,0.18);
-  --border2: rgba(232,184,75,0.35);
-}
+:root{--navy:#0C1A3A;--navy2:#112248;--yellow:#E8B84B;--yellow2:#F5C842;--cream:#EDE0C0;--cream2:#D9C99A;--red:#C0392B;--red-bg:rgba(192,57,43,0.15);--red-bd:rgba(192,57,43,0.5);--amber:#D4890A;--amb-bg:rgba(212,137,10,0.15);--amb-bd:rgba(212,137,10,0.5);--green:#1A7A52;--grn-bg:rgba(26,122,82,0.15);--grn-bd:rgba(26,122,82,0.5);--border:rgba(232,184,75,0.18);--border2:rgba(232,184,75,0.35)}
 *{box-sizing:border-box;margin:0;padding:0}
-body {
-  background: var(--navy);
-  color: var(--cream);
-  font-family: 'IBM Plex Mono', monospace;
-  min-height: 100vh;
-  padding: 20px;
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(232,184,75,0.04) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(232,184,75,0.03) 0%, transparent 50%),
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(232,184,75,0.03) 39px, rgba(232,184,75,0.03) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(232,184,75,0.03) 39px, rgba(232,184,75,0.03) 40px);
-}
-.header {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  border: 1.5px solid var(--border2);
-  border-radius: 4px;
-  margin-bottom: 14px;
-  overflow: hidden;
-  background: var(--navy2);
-}
-.header-brand {
-  display: flex;
-  align-items: center;
-  padding: 14px 20px;
-  border-right: 1.5px solid var(--border2);
-}
-.brand-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 34px;
-  letter-spacing: 0.08em;
-  color: var(--yellow2);
-  line-height: 1;
-}
-.brand-sub {
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  color: var(--cream2);
-  text-transform: uppercase;
-  margin-top: 2px;
-}
-.header-match {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  padding: 14px 20px;
-  border-right: 1.5px solid var(--border2);
-  flex: 1;
-}
-.match-label {
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  color: var(--cream2);
-  text-transform: uppercase;
-}
-.match-name {
-  font-family: 'Oswald', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--cream);
-  letter-spacing: 0.04em;
-}
-.header-day {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 14px 24px;
-  border-right: 1.5px solid var(--border2);
-  background: rgba(232,184,75,0.06);
-}
-.day-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 30px;
-  color: var(--yellow);
-  line-height: 1;
-  letter-spacing: 0.05em;
-}
-.day-label {
-  font-size: 8px;
-  letter-spacing: 0.18em;
-  color: var(--cream2);
-  text-transform: uppercase;
-}
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 20px;
-}
-.live-indicator {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  color: var(--cream2);
-  text-transform: uppercase;
-}
-.live-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--yellow);
-  animation: blink 1.8s infinite;
-}
+body{background:var(--navy);color:var(--cream);font-family:'IBM Plex Mono',monospace;min-height:100vh;padding:20px;background-image:radial-gradient(circle at 20% 20%,rgba(232,184,75,0.04) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(232,184,75,0.03) 0%,transparent 50%),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(232,184,75,0.03) 39px,rgba(232,184,75,0.03) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(232,184,75,0.03) 39px,rgba(232,184,75,0.03) 40px)}
+.header{display:flex;align-items:stretch;border:1.5px solid var(--border2);border-radius:4px;margin-bottom:14px;overflow:hidden;background:var(--navy2)}
+.header-brand{display:flex;align-items:center;padding:14px 20px;border-right:1.5px solid var(--border2)}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:0.08em;color:var(--yellow2);line-height:1}
+.brand-sub{font-size:8px;letter-spacing:0.2em;color:var(--cream2);text-transform:uppercase;margin-top:2px}
+.header-match{display:flex;flex-direction:column;justify-content:center;gap:4px;padding:14px 20px;border-right:1.5px solid var(--border2);flex:1}
+.match-label{font-size:8px;letter-spacing:0.2em;color:var(--cream2);text-transform:uppercase}
+.match-name{font-family:'Oswald',sans-serif;font-size:16px;font-weight:500;color:var(--cream);letter-spacing:0.04em}
+.header-day{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:14px 24px;border-right:1.5px solid var(--border2);background:rgba(232,184,75,0.06)}
+.day-num{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--yellow);line-height:1;letter-spacing:0.05em}
+.day-label{font-size:8px;letter-spacing:0.18em;color:var(--cream2);text-transform:uppercase}
+.header-controls{display:flex;align-items:center;gap:12px;padding:14px 20px}
+.live-indicator{display:flex;align-items:center;gap:6px;font-size:9px;letter-spacing:0.18em;color:var(--cream2);text-transform:uppercase}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);animation:blink 1.8s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
-.sim-btn {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  padding: 8px 16px;
-  border: 1.5px solid var(--border2);
-  background: transparent;
-  color: var(--yellow);
-  cursor: pointer;
-  text-transform: uppercase;
-  border-radius: 2px;
-  transition: all 0.2s;
-}
+.sim-btn{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:0.1em;font-weight:500;padding:8px 16px;border:1.5px solid var(--border2);background:transparent;color:var(--yellow);cursor:pointer;text-transform:uppercase;border-radius:2px;transition:all 0.2s}
 .sim-btn:hover{background:rgba(232,184,75,0.12);border-color:var(--yellow)}
 .sim-btn.danger{border-color:var(--red-bd);color:#e07070;background:var(--red-bg)}
-.tabs {
-  display: flex;
-  margin-bottom: 14px;
-  border: 1.5px solid var(--border2);
-  border-radius: 4px;
-  overflow: hidden;
-  background: var(--navy2);
-}
-.tab {
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  padding: 8px 16px;
-  color: var(--cream2);
-  cursor: pointer;
-  text-transform: uppercase;
-  border-right: 1px solid var(--border);
-  transition: all 0.15s;
-  flex: 1;
-  text-align: center;
-}
+.tabs{display:flex;margin-bottom:14px;border:1.5px solid var(--border2);border-radius:4px;overflow:hidden;background:var(--navy2)}
+.tab{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.1em;font-weight:500;padding:8px 16px;color:var(--cream2);cursor:pointer;text-transform:uppercase;border-right:1px solid var(--border);transition:all 0.15s;flex:1;text-align:center}
 .tab:last-child{border-right:none}
 .tab:hover{background:rgba(232,184,75,0.08);color:var(--cream)}
 .tab.active{background:var(--yellow);color:var(--navy);font-weight:600}
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(6,minmax(0,1fr));
-  margin-bottom: 14px;
-  border: 1.5px solid var(--border2);
-  border-radius: 4px;
-  overflow: hidden;
-  background: var(--navy2);
-}
-.kpi-card {
-  padding: 14px 14px 12px;
-  border-right: 1px solid var(--border);
-  transition: background 0.3s;
-  position: relative;
-}
+.kpi-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-bottom:14px;border:1.5px solid var(--border2);border-radius:4px;overflow:hidden;background:var(--navy2)}
+.kpi-card{padding:14px 14px 12px;border-right:1px solid var(--border);transition:background 0.3s;position:relative}
 .kpi-card:last-child{border-right:none}
 .kpi-card.high{background:var(--red-bg)}
 .kpi-card.med{background:var(--amb-bg)}
 .kpi-card.pos{background:var(--grn-bg)}
-.kpi-status-bar {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--border);
-  transition: background 0.3s;
-}
+.kpi-status-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--border);transition:background 0.3s}
 .kpi-card.high .kpi-status-bar{background:var(--red)}
-.kpi-card.med  .kpi-status-bar{background:var(--amber)}
-.kpi-card.pos  .kpi-status-bar{background:var(--green)}
-.kpi-label {
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--cream2);
-  margin-bottom: 6px;
-}
-.kpi-val {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 30px;
-  letter-spacing: 0.04em;
-  color: var(--cream);
-  line-height: 1;
-}
+.kpi-card.med .kpi-status-bar{background:var(--amber)}
+.kpi-card.pos .kpi-status-bar{background:var(--green)}
+.kpi-label{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream2);margin-bottom:6px}
+.kpi-val{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.04em;color:var(--cream);line-height:1}
 .kpi-card.high .kpi-val{color:#e07070}
-.kpi-card.pos  .kpi-val{color:#5dcaa5}
+.kpi-card.pos .kpi-val{color:#5dcaa5}
 .kpi-delta{font-size:9px;letter-spacing:0.1em;margin-top:4px}
 .kpi-delta.red{color:#e07070}
 .kpi-delta.amber{color:#fac775}
 .kpi-delta.green{color:#5dcaa5}
 .kpi-delta.muted{color:var(--cream2)}
-.bottom-grid {
-  display: grid;
-  grid-template-columns: 1fr 290px;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-.panel {
-  border: 1.5px solid var(--border2);
-  border-radius: 4px;
-  background: var(--navy2);
-  overflow: hidden;
-}
-.panel-header {
-  padding: 8px 14px;
-  border-bottom: 1px solid var(--border);
-  background: rgba(232,184,75,0.05);
-}
-.panel-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  font-weight: 500;
-}
+.bottom-grid{display:grid;grid-template-columns:1fr 290px;gap:14px;margin-bottom:14px}
+.panel{border:1.5px solid var(--border2);border-radius:4px;background:var(--navy2);overflow:hidden}
+.panel-header{padding:8px 14px;border-bottom:1px solid var(--border);background:rgba(232,184,75,0.05)}
+.panel-title{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--yellow);font-weight:500}
 .panel-body{padding:14px}
 .alerts-list{display:flex;flex-direction:column;gap:8px}
-.alert-item {
-  padding: 9px 12px;
-  border-left: 3px solid transparent;
-  font-size: 10px;
-  line-height: 1.5;
-  animation: slideIn 0.3s ease;
-  background: rgba(0,0,0,0.2);
-}
+.alert-item{padding:9px 12px;border-left:3px solid transparent;font-size:10px;line-height:1.5;animation:slideIn 0.3s ease;background:rgba(0,0,0,0.2)}
 .alert-item.high{border-color:var(--red)}
 .alert-item.med{border-color:var(--amber)}
 .alert-item.pos{border-color:var(--green)}
-.alert-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  font-weight: 500;
-  margin-bottom: 3px;
-}
+.alert-title{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.06em;font-weight:500;margin-bottom:3px}
 .alert-item.high .alert-title{color:#e07070}
-.alert-item.med  .alert-title{color:#fac775}
-.alert-item.pos  .alert-title{color:#5dcaa5}
+.alert-item.med .alert-title{color:#fac775}
+.alert-item.pos .alert-title{color:#5dcaa5}
 .alert-body{color:var(--cream2);font-size:10px}
 @keyframes slideIn{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:translateX(0)}}
-.agent-row {
-  border: 1.5px solid var(--border2);
-  border-radius: 4px;
-  background: var(--navy2);
-  overflow: hidden;
-}
-.agent-header {
-  padding: 8px 14px;
-  border-bottom: 1px solid var(--border);
-  background: rgba(232,184,75,0.05);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+.agent-row{border:1.5px solid var(--border2);border-radius:4px;background:var(--navy2);overflow:hidden}
+.agent-header{padding:8px 14px;border-bottom:1px solid var(--border);background:rgba(232,184,75,0.05);display:flex;align-items:center;justify-content:space-between}
 .agent-header-left{display:flex;align-items:center;gap:8px}
 .agent-dot{width:7px;height:7px;border-radius:50%;background:var(--yellow)}
-.agent-label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  font-weight: 500;
-}
+.agent-label{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--yellow);font-weight:500}
 .agent-ts{font-size:9px;letter-spacing:0.12em;color:var(--cream2)}
 .agent-body{padding:14px;display:flex;gap:14px;align-items:flex-start}
-.agent-bubble {
-  flex: 1;
-  background: rgba(0,0,0,0.25);
-  border-left: 3px solid var(--border2);
-  padding: 12px 14px;
-  font-size: 11px;
-  line-height: 1.8;
-  color: var(--cream2);
-  letter-spacing: 0.02em;
-  transition: all 0.3s;
-  min-height: 56px;
-}
+.agent-bubble{flex:1;background:rgba(0,0,0,0.25);border-left:3px solid var(--border2);padding:12px 14px;font-size:11px;line-height:1.8;color:var(--cream2);letter-spacing:0.02em;transition:all 0.3s;min-height:56px}
 .agent-bubble.high{border-color:var(--red);color:#e09090}
 .agent-bubble.pos{border-color:var(--green);color:#7dcaaa}
-.ask-btn {
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  padding: 10px 16px;
-  border: 1.5px solid var(--border2);
-  background: transparent;
-  color: var(--yellow);
-  cursor: pointer;
-  text-transform: uppercase;
-  border-radius: 2px;
-  white-space: nowrap;
-  transition: all 0.2s;
-}
+.ask-btn{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.1em;font-weight:500;padding:10px 16px;border:1.5px solid var(--border2);background:transparent;color:var(--yellow);cursor:pointer;text-transform:uppercase;border-radius:2px;white-space:nowrap;transition:all 0.2s}
 .ask-btn:hover{background:rgba(232,184,75,0.1);border-color:var(--yellow)}
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
-}
+.footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
 .footer-text{font-size:8px;letter-spacing:0.16em;color:var(--cream2);text-transform:uppercase}
 </style>
 </head>
@@ -359,7 +98,7 @@ body {
   </div>
   <div class="header-day">
     <div class="day-num" id="day-num">01</div>
-    <div class="day-label" id="day-label">of 14 Days</div>
+    <div class="day-label">of 14 Days</div>
   </div>
   <div class="header-controls">
     <div class="live-indicator">
@@ -382,9 +121,7 @@ body {
   </div>
   <div class="panel">
     <div class="panel-header"><div class="panel-title">Active Alerts</div></div>
-    <div class="panel-body">
-      <div class="alerts-list" id="alerts-list"></div>
-    </div>
+    <div class="panel-body"><div class="alerts-list" id="alerts-list"></div></div>
   </div>
 </div>
 
@@ -408,87 +145,174 @@ body {
 </div>
 
 <script>
-const scenarios=[
-  {label:"Day 1 · Normal",match:"Alcaraz vs. Djokovic · Court 1",dayNum:"01",time:"15:50 EST",
-   kpis:[{label:"Impressions",fmt:"42K",target:50000,actual:42000},{label:"Engagement",fmt:"2.1%",target:2.5,actual:2.1},{label:"Mentions",fmt:"320",target:350,actual:320},{label:"ROI Score",fmt:"72",target:65,actual:72,isROI:true},{label:"Sentiment",fmt:"0.65",target:0.5,actual:0.65,isSentiment:true},{label:"Social CTR",fmt:"1.2%",target:1.0,actual:1.2}],
-   trend:[40,42,41,44,43,42],
-   alerts:[{type:"med",title:"Medium — Impressions",body:"42k vs 50k target (16% below). Consider boosting placements."},{type:"pos",title:"Positive — ROI Score",body:"ROI at 72, above 65 benchmark. Sentiment strong at 0.65."}],
-   agentCls:"",agent:"Day 1 · Alcaraz vs. Djokovic, Court 1. Impressions are 16% below target — Medium Alert. ROI (72) and Sentiment (0.65) are strong. Recommended: boost impression placements while maintaining current engagement strategy. Priority: Medium. Requires sponsor approval."},
-  {label:"Day 2 · Under",match:"Medvedev vs. Sinner · Court 1",dayNum:"02",time:"16:02 EST",
-   kpis:[{label:"Impressions",fmt:"33K",target:50000,actual:33000},{label:"Engagement",fmt:"1.3%",target:2.5,actual:1.3},{label:"Mentions",fmt:"180",target:320,actual:180},{label:"ROI Score",fmt:"48",target:65,actual:48,isROI:true},{label:"Sentiment",fmt:"0.55",target:0.5,actual:0.55,isSentiment:true},{label:"Social CTR",fmt:"0.8%",target:1.0,actual:0.8}],
-   trend:[50,44,38,35,34,33],
-   alerts:[{type:"high",title:"High Alert — ROI Score",body:"ROI at 48, below High Alert threshold of 50. Immediate action required."},{type:"high",title:"High Alert — Auto-Escalated",body:"4 KPIs breach Medium thresholds simultaneously — combined into High Alert."}],
-   agentCls:"high",agent:"🔴 HIGH ALERT · Day 2, Medvedev vs. Sinner. ROI (48) breaches High Alert threshold. Four KPIs simultaneously breach Medium thresholds — auto-escalated to combined High Alert. Recommended: deploy real-time creative assets, activate micro-influencer push, reallocate budget to premium placements. Priority: High. Requires sponsor approval."},
-  {label:"Day 1 · Strong",match:"Swiatek vs. Sabalenka · Court 1",dayNum:"01",time:"17:15 EST",
-   kpis:[{label:"Impressions",fmt:"48K",target:45000,actual:48000},{label:"Engagement",fmt:"3.4%",target:2.5,actual:3.4},{label:"Mentions",fmt:"410",target:350,actual:410},{label:"ROI Score",fmt:"81",target:65,actual:81,isROI:true},{label:"Sentiment",fmt:"0.78",target:0.5,actual:0.78,isSentiment:true},{label:"Social CTR",fmt:"1.8%",target:1.0,actual:1.8}],
-   trend:[44,46,47,49,48,48],
-   alerts:[{type:"pos",title:"Positive — All KPIs Above Target",body:"All 6 metrics exceed targets. ROI at 81, Engagement at 3.4%."},{type:"pos",title:"Opportunity — Post-Match Window",body:"Extend creative assets 4h post-match to capture residual buzz."}],
-   agentCls:"pos",agent:"🟢 POSITIVE SIGNAL · Day 1, Swiatek vs. Sabalenka. All 6 KPIs performing above target. ROI (81) exceeds positive trigger threshold. Opportunity: amplify momentum in post-match window, consider modest budget increase for next match day. Priority: Low. Requires sponsor approval for budget changes."},
-  {label:"Day 3 · Recover",match:"Alcaraz vs. Zverev · Court 1",dayNum:"03",time:"15:30 EST",
-   kpis:[{label:"Impressions",fmt:"41K",target:55000,actual:41000},{label:"Engagement",fmt:"1.8%",target:2.5,actual:1.8},{label:"Mentions",fmt:"240",target:320,actual:240},{label:"ROI Score",fmt:"61",target:65,actual:61,isROI:true},{label:"Sentiment",fmt:"0.62",target:0.5,actual:0.62,isSentiment:true},{label:"Social CTR",fmt:"0.9%",target:1.0,actual:0.9}],
-   trend:[35,37,39,40,41,41],
-   alerts:[{type:"high",title:"High Alert — Impressions",body:"41k vs 55k target (25% below High Alert threshold)."},{type:"med",title:"Medium — Engagement & CTR",body:"Both below Medium thresholds. Consider influencer activation."}],
-   agentCls:"",agent:"Day 3 · Alcaraz vs. Zverev. Impressions 25% below target — High Alert. Engagement (1.8%) and CTR (0.9%) below Medium thresholds. Trend recovering (+6k from match start). Top actions: (1) deploy real-time creative assets, (2) activate influencer push on Alcaraz narrative, (3) reallocate budget to premium placements. Priority: High. Requires sponsor approval."}
+const scenarios = [
+  {
+    label:"Day 1 · Normal",
+    match:"Alcaraz vs. Djokovic · Court 1",
+    dayNum:"01", time:"15:50 EST",
+    kpis:[
+      {label:"Impressions", fmt:"42K",  target:50000, actual:42000},
+      {label:"Engagement",  fmt:"2.1%", target:2.5,   actual:2.1},
+      {label:"Mentions",    fmt:"320",  target:350,   actual:320},
+      {label:"ROI Score",   fmt:"72",   target:65,    actual:72,  isROI:true},
+      {label:"Sentiment",   fmt:"0.65", target:0.5,   actual:0.65,isSentiment:true},
+      {label:"Social CTR",  fmt:"1.2%", target:1.0,   actual:1.2}
+    ],
+    trend:[40,42,41,44,43,42],
+    alerts:[
+      {type:"med", title:"Medium — Impressions", body:"42k vs 50k target (16% below). Consider boosting placements."},
+      {type:"pos", title:"Positive — ROI Score",  body:"ROI at 72, above 65 benchmark. Sentiment strong at 0.65."}
+    ],
+    agentCls:"",
+    agent:"Day 1 · Alcaraz vs. Djokovic, Court 1. Impressions are 16% below target — Medium Alert. ROI (72) and Sentiment (0.65) are strong. Recommended: boost impression placements while maintaining current engagement strategy. Priority: Medium. Requires sponsor approval."
+  },
+  {
+    label:"Day 2 · Strong",
+    match:"Swiatek vs. Sabalenka · Court 1",
+    dayNum:"02", time:"17:15 EST",
+    kpis:[
+      {label:"Impressions", fmt:"48K",  target:45000, actual:48000},
+      {label:"Engagement",  fmt:"3.4%", target:2.5,   actual:3.4},
+      {label:"Mentions",    fmt:"410",  target:350,   actual:410},
+      {label:"ROI Score",   fmt:"81",   target:65,    actual:81,  isROI:true},
+      {label:"Sentiment",   fmt:"0.78", target:0.5,   actual:0.78,isSentiment:true},
+      {label:"Social CTR",  fmt:"1.8%", target:1.0,   actual:1.8}
+    ],
+    trend:[44,46,47,49,48,48],
+    alerts:[
+      {type:"pos", title:"Positive — All KPIs Above Target", body:"All 6 metrics exceed targets. ROI at 81, Engagement at 3.4%."},
+      {type:"pos", title:"Opportunity — Post-Match Window",   body:"Extend creative assets 4h post-match to capture residual buzz."}
+    ],
+    agentCls:"pos",
+    agent:"🟢 POSITIVE SIGNAL · Day 2, Swiatek vs. Sabalenka. All 6 KPIs performing above target. ROI (81) exceeds positive trigger threshold. Opportunity: amplify momentum in post-match window, consider modest budget increase for next match day. Priority: Low. Requires sponsor approval for budget changes."
+  },
+  {
+    label:"Day 3 · Under",
+    match:"Medvedev vs. Sinner · Court 1",
+    dayNum:"03", time:"16:02 EST",
+    kpis:[
+      {label:"Impressions", fmt:"33K",  target:50000, actual:33000},
+      {label:"Engagement",  fmt:"1.3%", target:2.5,   actual:1.3},
+      {label:"Mentions",    fmt:"180",  target:320,   actual:180},
+      {label:"ROI Score",   fmt:"48",   target:65,    actual:48,  isROI:true},
+      {label:"Sentiment",   fmt:"0.55", target:0.5,   actual:0.55,isSentiment:true},
+      {label:"Social CTR",  fmt:"0.8%", target:1.0,   actual:0.8}
+    ],
+    trend:[50,44,38,35,34,33],
+    alerts:[
+      {type:"high", title:"High Alert — ROI Score",      body:"ROI at 48, below High Alert threshold of 50. Immediate action required."},
+      {type:"high", title:"High Alert — Auto-Escalated", body:"4 KPIs breach Medium thresholds simultaneously — combined into High Alert."}
+    ],
+    agentCls:"high",
+    agent:"🔴 HIGH ALERT · Day 3, Medvedev vs. Sinner. ROI (48) breaches High Alert threshold. Four KPIs simultaneously breach Medium thresholds — auto-escalated to combined High Alert. Recommended: deploy real-time creative assets, activate micro-influencer push, reallocate budget to premium placements. Priority: High. Requires sponsor approval."
+  },
+  {
+    label:"Day 4 · Recover",
+    match:"Alcaraz vs. Zverev · Court 1",
+    dayNum:"04", time:"15:30 EST",
+    kpis:[
+      {label:"Impressions", fmt:"41K",  target:55000, actual:41000},
+      {label:"Engagement",  fmt:"1.8%", target:2.5,   actual:1.8},
+      {label:"Mentions",    fmt:"240",  target:320,   actual:240},
+      {label:"ROI Score",   fmt:"61",   target:65,    actual:61,  isROI:true},
+      {label:"Sentiment",   fmt:"0.62", target:0.5,   actual:0.62,isSentiment:true},
+      {label:"Social CTR",  fmt:"0.9%", target:1.0,   actual:0.9}
+    ],
+    trend:[35,37,39,40,41,41],
+    alerts:[
+      {type:"high", title:"High Alert — Impressions",   body:"41k vs 55k target (25% below High Alert threshold)."},
+      {type:"med",  title:"Medium — Engagement & CTR",  body:"Both below Medium thresholds. Consider influencer activation."}
+    ],
+    agentCls:"",
+    agent:"Day 4 · Alcaraz vs. Zverev. Impressions 25% below target — High Alert. Engagement (1.8%) and CTR (0.9%) below Medium thresholds. Trend recovering (+6k from match start). Top actions: (1) deploy real-time creative assets, (2) activate influencer push on Alcaraz narrative, (3) reallocate budget to premium placements. Priority: High. Requires sponsor approval."
+  }
 ];
 
-let current=0,chart=null;
+let current = 0, chart = null;
 
-function getStatus(k){
-  if(k.isROI){if(k.actual<50)return"high";if(k.actual<65)return"med";if(k.actual>=80)return"pos";return"ok"}
-  if(k.isSentiment){if(k.actual<0.3)return"high";if(k.actual>=0.65)return"pos";return"ok"}
-  const p=k.actual/k.target;
-  if(p>=1.10)return"pos";if(p<0.70)return"high";if(p<0.85)return"med";return"ok"
+function getStatus(k) {
+  if (k.isROI) { if(k.actual<50)return"high"; if(k.actual<65)return"med"; if(k.actual>=80)return"pos"; return"ok" }
+  if (k.isSentiment) { if(k.actual<0.3)return"high"; if(k.actual>=0.65)return"pos"; return"ok" }
+  const p = k.actual/k.target;
+  if(p>=1.10)return"pos"; if(p<0.70)return"high"; if(p<0.85)return"med"; return"ok"
 }
-function getDelta(k){
-  const p=Math.round((k.actual/k.target-1)*100);
+
+function getDelta(k) {
+  const p = Math.round((k.actual/k.target-1)*100);
   if(p>0)return{cls:"green",txt:`+${p}% vs target`};
   if(p<0)return{cls:"red",txt:`${p}% vs target`};
   return{cls:"muted",txt:"On target"}
 }
-function renderTabs(){
-  document.getElementById("tabs").innerHTML=scenarios.map((s,i)=>
-    `<div class="tab ${i===current?'active':''}" onclick="goTo(${i})">${s.label}</div>`).join("")
+
+function renderTabs() {
+  document.getElementById("tabs").innerHTML = scenarios.map((s,i) =>
+    `<div class="tab ${i===current?'active':''}" onclick="goTo(${i})">${s.label}</div>`
+  ).join("")
 }
-function renderKPIs(s){
-  document.getElementById("kpi-grid").innerHTML=s.kpis.map(k=>{
-    const st=getStatus(k),dl=getDelta(k);
-    return`<div class="kpi-card ${st}"><div class="kpi-status-bar"></div><div class="kpi-label">${k.label}</div><div class="kpi-val">${k.fmt}</div><div class="kpi-delta ${dl.cls}">${dl.txt}</div></div>`
+
+function renderKPIs(s) {
+  document.getElementById("kpi-grid").innerHTML = s.kpis.map(k => {
+    const st=getStatus(k), dl=getDelta(k);
+    return `<div class="kpi-card ${st}">
+      <div class="kpi-status-bar"></div>
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-val">${k.fmt}</div>
+      <div class="kpi-delta ${dl.cls}">${dl.txt}</div>
+    </div>`
   }).join("")
 }
-function renderAlerts(s){
-  document.getElementById("alerts-list").innerHTML=s.alerts.length
-    ?s.alerts.map(a=>`<div class="alert-item ${a.type}"><div class="alert-title">${a.title}</div><div class="alert-body">${a.body}</div></div>`).join("")
-    :`<div style="font-size:10px;color:var(--cream2);letter-spacing:0.1em">— NO ACTIVE ALERTS —</div>`
+
+function renderAlerts(s) {
+  document.getElementById("alerts-list").innerHTML = s.alerts.length
+    ? s.alerts.map(a=>`<div class="alert-item ${a.type}"><div class="alert-title">${a.title}</div><div class="alert-body">${a.body}</div></div>`).join("")
+    : `<div style="font-size:10px;color:var(--cream2);letter-spacing:0.1em">— NO ACTIVE ALERTS —</div>`
 }
-function renderAgent(s){
-  const el=document.getElementById("agent-bubble");
-  el.textContent=s.agent;el.className=`agent-bubble ${s.agentCls}`;
-  document.getElementById("agent-ts").textContent=`${s.time} · Day ${parseInt(s.dayNum)} of 14`
+
+function renderAgent(s) {
+  const el = document.getElementById("agent-bubble");
+  el.textContent = s.agent;
+  el.className = `agent-bubble ${s.agentCls}`;
+  document.getElementById("agent-ts").textContent = `${s.time} · Day ${parseInt(s.dayNum)} of 14`
 }
-function renderChart(s){
-  const ctx=document.getElementById("trendChart").getContext("2d");
-  if(chart)chart.destroy();
-  const hasHigh=s.alerts.some(a=>a.type==="high");
-  const allPos=s.alerts.every(a=>a.type==="pos");
-  const lc=hasHigh?"#C0392B":allPos?"#1A7A52":"#E8B84B";
-  chart=new Chart(ctx,{type:"line",data:{labels:["-25m","-20m","-15m","-10m","-5m","Now"],datasets:[{data:s.trend,borderColor:lc,backgroundColor:"transparent",borderWidth:2,pointRadius:4,pointBackgroundColor:lc,pointBorderColor:"#112248",pointBorderWidth:2,tension:0.35}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:"rgba(232,184,75,0.07)"},ticks:{color:"#9a8a6a",font:{family:"'IBM Plex Mono'",size:10}}},y:{grid:{color:"rgba(232,184,75,0.07)"},ticks:{color:"#9a8a6a",font:{family:"'IBM Plex Mono'",size:10}}}}}})
+
+function renderChart(s) {
+  const ctx = document.getElementById("trendChart").getContext("2d");
+  if(chart) chart.destroy();
+  const hasHigh = s.alerts.some(a=>a.type==="high");
+  const allPos  = s.alerts.every(a=>a.type==="pos");
+  const lc = hasHigh ? "#C0392B" : allPos ? "#1A7A52" : "#E8B84B";
+  chart = new Chart(ctx, {
+    type:"line",
+    data:{
+      labels:["-25m","-20m","-15m","-10m","-5m","Now"],
+      datasets:[{data:s.trend,borderColor:lc,backgroundColor:"transparent",borderWidth:2,pointRadius:4,pointBackgroundColor:lc,pointBorderColor:"#112248",pointBorderWidth:2,tension:0.35}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:"rgba(232,184,75,0.07)"},ticks:{color:"#9a8a6a",font:{family:"'IBM Plex Mono'",size:10}}},y:{grid:{color:"rgba(232,184,75,0.07)"},ticks:{color:"#9a8a6a",font:{family:"'IBM Plex Mono'",size:10}}}}}
+  })
 }
-function renderAll(){
-  const s=scenarios[current];
-  document.getElementById("match-tag").textContent=s.match;
-  document.getElementById("day-num").textContent=s.dayNum;
-  document.getElementById("refresh-time").textContent=`Live · ${s.time}`;
-  document.getElementById("footer-ts").textContent=`Data refreshed: ${s.time}`;
-  document.getElementById("sim-btn").className=s.alerts.some(a=>a.type==="high")?"sim-btn danger":"sim-btn";
-  renderTabs();renderKPIs(s);renderAlerts(s);renderAgent(s);renderChart(s)
+
+function renderAll() {
+  const s = scenarios[current];
+  document.getElementById("match-tag").textContent = s.match;
+  document.getElementById("day-num").textContent = s.dayNum;
+  document.getElementById("refresh-time").textContent = `Live · ${s.time}`;
+  document.getElementById("footer-ts").textContent = `Data refreshed: ${s.time}`;
+  document.getElementById("sim-btn").className = s.alerts.some(a=>a.type==="high") ? "sim-btn danger" : "sim-btn";
+  renderTabs(); renderKPIs(s); renderAlerts(s); renderAgent(s); renderChart(s)
 }
-function goTo(i){current=i;renderAll()}
-function nextScenario(){
-  const btn=document.getElementById("sim-btn");
-  btn.textContent="Loading...";btn.disabled=true;
-  setTimeout(()=>{current=(current+1)%scenarios.length;renderAll();btn.textContent="↺ Simulate Data";btn.disabled=false},500)
+
+function goTo(i) { current=i; renderAll() }
+
+function nextScenario() {
+  const btn = document.getElementById("sim-btn");
+  btn.textContent="Loading..."; btn.disabled=true;
+  setTimeout(()=>{ current=(current+1)%scenarios.length; renderAll(); btn.textContent="↺ Simulate Data"; btn.disabled=false }, 500)
 }
-function askAgent(){alert("Switch to IBM watsonx Orchestrate and paste the current scenario data into the LiveEdge agent chat for a live demo.")}
+
+function askAgent() {
+  alert("Switch to IBM watsonx Orchestrate and paste the current scenario data into the LiveEdge agent chat for a live demo.")
+}
+
 renderAll();
 </script>
 </body>
